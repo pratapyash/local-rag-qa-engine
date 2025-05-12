@@ -1,9 +1,8 @@
-from langchain_community.chat_models import ChatOllama  # You already have this
-from langchain_community.llms import Ollama  # Add this if you want to use the base Ollama class
 from langchain_community.document_compressors.flashrank_rerank import FlashrankRerank
 from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
 from langchain_core.language_models import BaseLanguageModel
 from langchain_groq import ChatGroq
+from langchain_ollama import ChatOllama
 
 from ragbase.config import Config
 
