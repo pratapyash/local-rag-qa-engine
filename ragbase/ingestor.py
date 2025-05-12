@@ -33,18 +33,18 @@ class Ingestor:
                 
                 loaded_documents = loader.load()
                 if not loaded_documents:
-                    print(f"Warning: No content loaded from {doc_path}")
+                    logging.warning(f"No content loaded from {doc_path}")
                     continue
                     
                 # Process loaded documents directly using split_documents
                 split_docs = self.recursive_splitter.split_documents(loaded_documents)
                 if not split_docs:
-                    print(f"Warning: No documents created from {doc_path}")
+                    logging.warning(f"No documents created from {doc_path}")
                     continue
                     
                 documents.extend(split_docs)
             except Exception as e:
-                print(f"Error processing {doc_path}: {str(e)}")
+                logging.error(f"Error processing {doc_path}: {str(e)}")
         
         if not documents:
             raise ValueError("No documents were loaded. Please check your files.")
