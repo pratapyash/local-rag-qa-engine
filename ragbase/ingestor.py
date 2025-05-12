@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import List
+import logging
 
 from langchain_community.document_loaders import PyPDFium2Loader, TextLoader
 from langchain_community.embeddings.fastembed import FastEmbedEmbeddings
