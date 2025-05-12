@@ -45,7 +45,7 @@ class Ingestor:
                     
                 documents.extend(split_docs)
             except Exception as e:
-                logging.error(f"Error processing {doc_path}: {str(e)}")
+                logging.exception(f"Error processing {doc_path}: {str(e)}")
         
         if not documents:
             raise ValueError("No documents were loaded. Please check your files.")
