@@ -14,7 +14,8 @@ async def main():
     print("Ingestor created")
     
     print("Processing PDF...")
-    vector_store = ingestor.ingest([pathlib.Path('tmp/test.pdf')])
+    loop = asyncio.get_running_loop()
+    vector_store = await loop.run_in_executor(None, ingestor.ingest, [pathlib.Path('tmp/test.pdf')])
     print("Vector store created")
     
     retriever = create_retriever(llm, vector_store=vector_store)
